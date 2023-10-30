@@ -1,4 +1,5 @@
 <template>
+    <!-- Notification middle section -->
     <div class="flex-1 border-r border-gray overflow-y-auto no-scrollbar">
         <div class="flex flex-col">
             <!-- title section -->
@@ -21,11 +22,15 @@
             </div>
         </div>
     </div>
+    <!-- Trends -->
+    <Trends/>
 </template>
 
 <script>
+import Trends from '../components/Trends.vue';
 export default {
-
+    components: { Trends},
+    setup(){},
 }
 </script>
 

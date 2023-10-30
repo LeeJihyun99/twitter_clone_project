@@ -69,18 +69,17 @@
     </div>
 
     <div class="flex-1 flex h-screen">
-      <Notifications />
-      <Trends />
+      <Messages />
     </div>
 
   </div>
 </template>
 
 <script >
-import Trends from './components/Trends.vue';
-import Notifications from '../src/Pages/Notifications.vue'
+
+import Messages from './Pages/Messages.vue';
 export default {
-  components: {Trends, Notifications},
+  components: { Messages },
   setup(){},
 }
 </script>
