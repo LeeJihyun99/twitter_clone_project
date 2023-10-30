@@ -7,7 +7,13 @@ module.exports = {
       'grayid':'#71717a',
       'twitter':'#38bdf8',
       'twitteronMouse':'#0ea5e9',
-      'white': '#ffffff'
+      'white': '#ffffff',
+      'lightgray': '#f3f4f6',
+      'heart':'#ef4444',
+      'retweet':'#34d399',
+      'black':'#020617',
+      'grayonMouse':'#f3f4f6'
+    
     },
   },
   variants: {

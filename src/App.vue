@@ -68,10 +68,10 @@
       </div>
     </div>
 
-    <!-- main middle section -->
     <div class="flex-1">
-      <div class="flex h-screen">
-        <div class="flex-1 border-r border-gray">
+      <div class=" flex h-screen">
+        <!-- main middle section -->
+        <div class="w-2/5 flex-1 border-r border-gray overflow-y-auto no-scrollbar">
           <div class="flex flex-col">
             <!-- top row -->
             <div class="flex flex-row border-b border-gray h-16">
@@ -83,23 +83,144 @@
                 </button>
               </div>
             </div>
-            <!-- write post section -->
+            <!-- tweeting section -->
             <div class="flex px-3 py-3 border-b border-gray">
-              <img src="http://picsum.photos/50" class="w-16 h-16 rounded-full "/>
+              <img src="http://picsum.photos/50" class="hover:brightness-75 w-16 h-16 rounded-full "/>
               <div class="ml-2 flex-1 flex flex-col">
-                <textarea placeholder="What's happening?" class="w-full text-lg font-bold focus:outline-none mb-3 resize-none"></textarea>
+                <div contentEditable="true" placeholder="What's happening?" class="w-full text-2xl focus:outline-none mb-3 resize-none"></div>
                 <div class="text-right border-t border-gray">
-                  <Button class="bg-twitter text-white font-bold rounded-full mt-2 px-4 py-2">Post</Button> 
+                  <Button class="bg-twitter hover:bg-twitteronMouse text-white rounded-full mt-2 px-6 py-2 text-xl text-bold">Post</Button> 
               </div>
             </div>
             </div>
-            <div>posts</div>
+            <!-- tweets -->
+            <div class="flex flex-col" v-for="tweet in 10">
+              <button class="flex hover:bg-lightgray w-full border-b border-gray">
+                <img src="http://picsum.photos/50" class=" mx-3 my-3 hover:brightness-75 w-16 h-16 rounded-full "/>
+                <div class="flex-1 flex flex-col pt-3 w-full text-start">
+                  <!-- profile, id, and more section -->
+                  <div class="flex flex-row w-full justify-between">
+                    <div class="py-2 text-xl space-x-2">
+                      <span class="font-semibold">name</span>
+                      <span class="text-grayid">@twitter-id</span>
+                      <span class="text-grayid">·</span>
+                      <span >1h</span>
+                    </div>
+                    <div class="px-2 py-2 hover:bg-twitter hover:bg-opacity-20 hover:text-twitter rounded-full mr-3">
+                      <i class="fas fa-ellipsis-h fa-fw text-xl"></i>
+                    </div>
+                  </div>
+                  <div class="text-lg">Here you can write description of your tweet and also add some tags as well!</div>
+                  <div class="text-lg text-twitteronMouse">#tweet #css #html #coding</div>
+                  <div class="mr-8">
+                    <img src="http://picsum.photos/50" class=" mx-3 my-3 rounded-md w-full h-80"/>
+                  </div>
+                  <!-- bottom menu icons(comments, retweet, like, view, bookmark, share) -->
+                  <div class="flex flex-row justify-between w-full mb-2">
+                    <!-- comment button -->
+                    <div class="flex flex-row space-x-2 px-3 py-1 hover:text-twitteronMouse hover:bg-twitter hover:bg-opacity-20 rounded-full">
+                      <i class="fa-regular fa-comment text-xl "></i>
+                      <div>244</div>
+                    </div>
+                    <!-- retweet button -->
+                    <div class="flex flex-row space-x-2 px-3 py-1 hover:text-retweet hover:bg-retweet hover:bg-opacity-20 rounded-full">
+                      <i class="fa-solid fa-retweet text-xl"></i>
+                      <div>20</div>
+                    </div>
+                    <!-- like button -->
+                    <div class="flex flex-row space-x-2 px-3 py-1 hover:text-heart hover:bg-heart hover:bg-opacity-20 rounded-full">
+                      <i class="fa-regular fa-heart text-xl"></i>
+                      <div>200</div>
+                    </div>
+                    <!-- view button -->
+                    <div class="flex flex-row space-x-2 px-3 py-1 hover:text-twitteronMouse hover:bg-twitter hover:bg-opacity-20 rounded-full">
+                      <i class="fa-solid fa-chart-column text-xl"></i>
+                      <div>2.1k</div>
+                    </div>
+                    <!-- bookmark and share section -->
+                    <div class="flex flex-row space-x-2 mr-3 ">
+                      <!-- bookmark button -->
+                        <i class="fa-regular fa-bookmark px-3 py-1 hover:text-twitteronMouse text-xl hover:bg-twitter hover:bg-opacity-20 rounded-full"></i>
+                        <i class="fa-solid fa-arrow-up-from-bracket px-3 py-1 hover:text-twitteronMouse text-xl hover:bg-twitter hover:bg-opacity-20 rounded-full"></i>
+                    </div>
+                  </div>
+                </div>
+              </button>              
+            </div>
+          </div>
+        </div>
+        <!-- trend section -->
+        <div class="w-2/5 flex hidden lg:block">
+          <div class="flex flex-col justify-between space-y-5">
+            <!-- search -->
+            <div class="relative mr-40 mt-2">
+              <input placeholder="Search" type="text" class="focus:ring-1 focus:bg-white h-12 ml-5 pl-14 focus: outline-none rounded-full bg-lightgray w-full "/>
+              <i class="fa-solid fa-magnifying-glass absolute left-7 top-2 pl-3  text-xl"></i>
+              <!-- <i class="fa-solid fa-circle-xmark absolute right-0 top-3 pr-3 text-xl"></i> -->
+
+            </div>
+            <!-- <div class="flex flex-row justify-center rounded-full space-x-4 bg-lightgray ml-5 mr-36 mt-3 py-3">
+              <i class="fa-solid fa-magnifying-glass text-gray  mt-0.5 text-xl"></i>
+              <input class="border-0 outline-none w-4/6 bg-lightgray" type="text"  placeholder="Search"/>
+              <i class="fa-solid fa-circle-xmark mt-0.5 text-xl"></i>
+            </div> -->
+            <!-- subscribe to premium -->
+            <div class="flex flex-col bg-lightgray rounded-lg mr-36 ml-5 space-y-2">
+              <span class="text-2xl font-bold px-3 py-3">Subscribe to Premium</span>
+              <span class="text-xl px-3 py-3">Subscribe to unlock new features and if eligible, receive a share of ads revenue.</span>
+              <div class="px-3 py-3">
+                <button class="px-3 py-3 bg-black text-white rounded-full text-left hover:opacity-80">Subscribe</button>
+              </div>
+            </div>
+            
+            <!-- trends ranking section -->
+            <div class="flex flex-col bg-lightgray rounded-lg mr-36 ml-5 space-y-2">
+              <span class="text-2xl font-bold px-3 py-3">Germany trends</span>
+              <!-- trends list section -->
+              <div class="flex flex-col justify-between space-y-1 hover:bg-grayonMouse hover:bg-opacity-50 w-full py-3" v-for="trend in 10">
+                <div class="flex flex-row justify-between ml-3">
+                  <div class="text-grayid">
+                    <span>1</span>
+                    <span>·</span>
+                    <span>Bundesliga · Trending</span>
+                  </div>
+                  <div class="px-2 py-2 hover:bg-twitter hover:bg-opacity-20 hover:text-twitter rounded-full mr-3">
+                    <i class="fas fa-ellipsis-h fa-fw text-xl"></i>
+                  </div>
+                </div>
+                <div class="ml-3 text-xl font-semibold">#SGEBVB</div>
+                <div class="ml-3 text-grayid">5,237 posts</div>
+              </div>
+            </div>
+
+            <!-- who to follow -->
+            <div class="flex flex-col bg-lightgray rounded-lg mr-36 ml-5 space-y-2">
+              <span class="text-2xl font-bold px-3 py-3">Who to follow</span>
+              <!-- followers list section -->
+              <div class="flex flex-col justify-between">
+                <!-- each follower recommendation section -->
+                <div class="flex flex-row hover:bg-grayonMouse hover:bg-opacity-50 w-full py-3 justify-between" v-for="follower in 3">
+                  <!-- profile picture and name -->
+                  <div class="flex flex-row space-x-3 ml-3">
+                    <img src="http://picsum.photos/50" class="w-10 h-10 rounded-full "/>
+                    <div class="flex flex-col">
+                      <span class="text-xl font-semibold">Space X</span>
+                      <span>@SpaceX</span>
+                    </div>  
+                  </div>
+                  <!-- follow button -->
+                  <div class="mr-2 ">
+                    <button class="hover:opacity-80 px-4 py-2 font-bold bg-black text-white rounded-full">Follow</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
-    <!-- side section -->
-    <div class="flex-1 hidden lg:block">side bar</div>
+
   </div>
 </template>
 
@@ -108,4 +229,8 @@
 
 
 <style>
+[contentEditable=true]:empty:before {
+    content: attr(placeholder);
+    opacity: 0.6;
+  }
 </style>
