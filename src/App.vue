@@ -1,50 +1,50 @@
 <template>
-  <div class="flex h-screen">
+  <div class="flex h-screen container mx-auto">
     <!-- side section  -->
-    <div class="w-20 lg:w-1/5 flex flex-col lg:ml-16 pt-5 justify-between border-r border-gray">
+    <div class="w-20 lg:w-1/5 flex flex-col pt-5 justify-between border-r border-gray">
       <!-- logo + side menu icons + twitter button -->
       <div class="flex flex-col items-center lg:items-start">
         <!-- twitter logo -->
-        <i class="fa-brands fa-x-twitter text-4xl lg:ml-10 mb-3"></i>
+        <i class="fa-brands fa-x-twitter text-4xl px-3  mb-3"></i>
         <!--side menu icons + twitter button -->
         <div class="flex flex-col items-start">
           <!-- side menu icons -->
-          <div class="flex flex-col flex-1 items-start lg:ml-10 space-y-4">
-            <div class="hover:bg-gray px-4 py-2 rounded-full cursor-pointer">
+          <div class="flex flex-col flex-1 items-start space-y-4">
+            <div class="hover:bg-gray px-3 py-2 rounded-full cursor-pointer">
               <i class="fa-solid fa-house text-3xl"></i>
               <span class="hidden lg:inline-block ml-5 text-2xl">Home</span>
             </div>
-            <div class="hover:bg-gray px-4 py-2 rounded-full cursor-pointer">
+            <div class="hover:bg-gray px-3 py-2 rounded-full cursor-pointer">
               <i class="fa-solid fa-magnifying-glass text-3xl"></i>
               <span class="hidden lg:inline-block ml-5 text-2xl">Explore</span>
             </div>
-            <div class="hover:bg-gray px-4 py-2 rounded-full cursor-pointer">
+            <div class="hover:bg-gray px-3 py-2 rounded-full cursor-pointer">
               <i class="fa-regular fa-bell text-3xl"></i>
               <span class="hidden lg:inline-block ml-5 text-2xl">Notification</span>
             </div>
-            <div class="hover:bg-gray px-4 py-2 rounded-full cursor-pointer">
+            <div class="hover:bg-gray px-3 py-2 rounded-full cursor-pointer">
               <i class="fa-regular fa-message text-3xl"></i>
               <span class="hidden lg:inline-block ml-5 text-2xl">Messages</span>
             </div>
-            <div class="hover:bg-gray px-4 py-2 rounded-full cursor-pointer">
+            <div class="hover:bg-gray px-3 py-2 rounded-full cursor-pointer">
               <i class="fa-regular fa-rectangle-list text-3xl"></i>
               <span class="hidden lg:inline-block ml-5 text-2xl">List</span>
             </div>
-            <div class="hover:bg-gray px-4 py-2 rounded-full cursor-pointer">
+            <div class="hover:bg-gray px-3 py-2 rounded-full cursor-pointer">
               <i class="fa-solid fa-users text-3xl"></i>
               <span class="hidden lg:inline-block ml-5 text-2xl">Communities</span>
             </div>
-            <div class="hover:bg-gray px-4 py-2 rounded-full cursor-pointer">
+            <div class="hover:bg-gray px-3 py-2 rounded-full cursor-pointer">
               <i class="fa-brands fa-x-twitter text-3xl"></i>
               <span class="hidden lg:inline-block ml-5 text-2xl">Premium</span>
             </div>
-            <div class="hover:bg-gray px-4 py-2 rounded-full cursor-pointer">
+            <div class="hover:bg-gray px-3 py-2 rounded-full cursor-pointer">
               <i class="fa-regular fa-user text-3xl"></i>
               <span class="hidden lg:inline-block ml-5 text-2xl">Profile</span>
             </div>
           </div>
           <!-- twitter button -->
-          <div class="w-full flex lg:ml-10 mt-4">
+          <div class="w-full flex mt-4 pl-3 ">
             <button class=" bg-twitter hover:bg-twitteronMouse rounded-full w-full h-16">
               <span class="text-white text-xl font-bold hidden lg:block">Post</span>
               <i class="fas fa-plus text-white text-xl font-bold lg:hidden"></i>
@@ -153,19 +153,14 @@
         <div class="w-2/5 flex hidden lg:block">
           <div class="flex flex-col justify-between space-y-5">
             <!-- search -->
-            <div class="relative mr-40 mt-2">
+            <div class="relative mr-6 mt-2">
               <input placeholder="Search" type="text" class="focus:ring-1 focus:bg-white h-12 ml-5 pl-14 focus: outline-none rounded-full bg-lightgray w-full "/>
               <i class="fa-solid fa-magnifying-glass absolute left-7 top-2 pl-3  text-xl"></i>
               <!-- <i class="fa-solid fa-circle-xmark absolute right-0 top-3 pr-3 text-xl"></i> -->
-
             </div>
-            <!-- <div class="flex flex-row justify-center rounded-full space-x-4 bg-lightgray ml-5 mr-36 mt-3 py-3">
-              <i class="fa-solid fa-magnifying-glass text-gray  mt-0.5 text-xl"></i>
-              <input class="border-0 outline-none w-4/6 bg-lightgray" type="text"  placeholder="Search"/>
-              <i class="fa-solid fa-circle-xmark mt-0.5 text-xl"></i>
-            </div> -->
+           
             <!-- subscribe to premium -->
-            <div class="flex flex-col bg-lightgray rounded-lg mr-36 ml-5 space-y-2">
+            <div class="flex flex-col bg-lightgray rounded-lg mr-22 ml-5 space-y-2">
               <span class="text-2xl font-bold px-3 py-3">Subscribe to Premium</span>
               <span class="text-xl px-3 py-3">Subscribe to unlock new features and if eligible, receive a share of ads revenue.</span>
               <div class="px-3 py-3">
@@ -174,17 +169,17 @@
             </div>
             
             <!-- trends ranking section -->
-            <div class="flex flex-col bg-lightgray rounded-lg mr-36 ml-5 space-y-2">
+            <div class="flex flex-col bg-lightgray rounded-lg mr-22 ml-5 space-y-2">
               <span class="text-2xl font-bold px-3 py-3">Germany trends</span>
               <!-- trends list section -->
-              <div class="flex flex-col hover:bg-gray hover:bg-opacity-40  w-full py-3" v-for="trend in 5">
+              <div class="flex flex-col hover:bg-gray hover:bg-opacity-40  w-full py-2" v-for="trend in 5">
                 <div class="flex flex-row justify-between ml-3">
-                  <div class="text-grayid">
+                  <div class="text-grayid ">
                     <span>1</span>
                     <span>·</span>
-                    <span>Bundesliga · Trending</span>
+                    <span>Trending</span>
                   </div>
-                  <div class="px-2 py-2 hover:bg-twitter hover:bg-opacity-20 hover:text-twitter rounded-full mr-3 cursor-pointer">
+                  <div class=" hover:bg-twitter hover:bg-opacity-20 hover:text-twitter rounded-full mr-3 cursor-pointer">
                     <i class="fas fa-ellipsis-h fa-fw text-xl"></i>
                   </div>
                 </div>
@@ -194,7 +189,7 @@
             </div>
 
             <!-- who to follow -->
-            <div class="flex flex-col bg-lightgray rounded-lg mr-36 ml-5 space-y-2">
+            <div class="flex flex-col bg-lightgray rounded-lg mr-22 ml-5 space-y-2">
               <span class="text-2xl font-bold px-3 py-3">Who to follow</span>
               <!-- followers list section -->
               <div class="flex flex-col justify-between">
