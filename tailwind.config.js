@@ -12,7 +12,7 @@ module.exports = {
       'heart':'#ef4444',
       'retweet':'#34d399',
       'black':'#020617',
-      'grayonMouse':'#f3f4f6'
+      'grayonMouse':'#f3f4f6',
     
     },
   },

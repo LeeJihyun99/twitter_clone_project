@@ -1,7 +1,7 @@
 <template>
   <div class="flex h-screen">
     <!-- side section  -->
-    <div class="w-1/5 flex flex-col lg:ml-16 pt-5 justify-between border-r border-gray">
+    <div class="w-20 lg:w-1/5 flex flex-col lg:ml-16 pt-5 justify-between border-r border-gray">
       <!-- logo + side menu icons + twitter button -->
       <div class="flex flex-col items-center lg:items-start">
         <!-- twitter logo -->
@@ -10,35 +10,35 @@
         <div class="flex flex-col items-start">
           <!-- side menu icons -->
           <div class="flex flex-col flex-1 items-start lg:ml-10 space-y-4">
-            <div class="hover:bg-gray px-4 py-2 rounded-full">
+            <div class="hover:bg-gray px-4 py-2 rounded-full cursor-pointer">
               <i class="fa-solid fa-house text-3xl"></i>
               <span class="hidden lg:inline-block ml-5 text-2xl">Home</span>
             </div>
-            <div class="hover:bg-gray px-4 py-2 rounded-full">
+            <div class="hover:bg-gray px-4 py-2 rounded-full cursor-pointer">
               <i class="fa-solid fa-magnifying-glass text-3xl"></i>
               <span class="hidden lg:inline-block ml-5 text-2xl">Explore</span>
             </div>
-            <div class="hover:bg-gray px-4 py-2 rounded-full">
+            <div class="hover:bg-gray px-4 py-2 rounded-full cursor-pointer">
               <i class="fa-regular fa-bell text-3xl"></i>
               <span class="hidden lg:inline-block ml-5 text-2xl">Notification</span>
             </div>
-            <div class="hover:bg-gray px-4 py-2 rounded-full">
+            <div class="hover:bg-gray px-4 py-2 rounded-full cursor-pointer">
               <i class="fa-regular fa-message text-3xl"></i>
               <span class="hidden lg:inline-block ml-5 text-2xl">Messages</span>
             </div>
-            <div class="hover:bg-gray px-4 py-2 rounded-full">
+            <div class="hover:bg-gray px-4 py-2 rounded-full cursor-pointer">
               <i class="fa-regular fa-rectangle-list text-3xl"></i>
               <span class="hidden lg:inline-block ml-5 text-2xl">List</span>
             </div>
-            <div class="hover:bg-gray px-4 py-2 rounded-full">
+            <div class="hover:bg-gray px-4 py-2 rounded-full cursor-pointer">
               <i class="fa-solid fa-users text-3xl"></i>
               <span class="hidden lg:inline-block ml-5 text-2xl">Communities</span>
             </div>
-            <div class="hover:bg-gray px-4 py-2 rounded-full">
+            <div class="hover:bg-gray px-4 py-2 rounded-full cursor-pointer">
               <i class="fa-brands fa-x-twitter text-3xl"></i>
               <span class="hidden lg:inline-block ml-5 text-2xl">Premium</span>
             </div>
-            <div class="hover:bg-gray px-4 py-2 rounded-full">
+            <div class="hover:bg-gray px-4 py-2 rounded-full cursor-pointer">
               <i class="fa-regular fa-user text-3xl"></i>
               <span class="hidden lg:inline-block ml-5 text-2xl">Profile</span>
             </div>
@@ -177,14 +177,14 @@
             <div class="flex flex-col bg-lightgray rounded-lg mr-36 ml-5 space-y-2">
               <span class="text-2xl font-bold px-3 py-3">Germany trends</span>
               <!-- trends list section -->
-              <div class="flex flex-col justify-between space-y-1 hover:bg-grayonMouse hover:bg-opacity-50 w-full py-3" v-for="trend in 10">
+              <div class="flex flex-col hover:bg-gray hover:bg-opacity-40  w-full py-3" v-for="trend in 5">
                 <div class="flex flex-row justify-between ml-3">
                   <div class="text-grayid">
                     <span>1</span>
                     <span>·</span>
                     <span>Bundesliga · Trending</span>
                   </div>
-                  <div class="px-2 py-2 hover:bg-twitter hover:bg-opacity-20 hover:text-twitter rounded-full mr-3">
+                  <div class="px-2 py-2 hover:bg-twitter hover:bg-opacity-20 hover:text-twitter rounded-full mr-3 cursor-pointer">
                     <i class="fas fa-ellipsis-h fa-fw text-xl"></i>
                   </div>
                 </div>
@@ -199,7 +199,7 @@
               <!-- followers list section -->
               <div class="flex flex-col justify-between">
                 <!-- each follower recommendation section -->
-                <div class="flex flex-row hover:bg-grayonMouse hover:bg-opacity-50 w-full py-3 justify-between" v-for="follower in 3">
+                <div class="flex flex-row hover:bg-gray hover:bg-opacity-40 w-full py-3 justify-between" v-for="follower in 3">
                   <!-- profile picture and name -->
                   <div class="flex flex-row space-x-3 ml-3">
                     <img src="http://picsum.photos/50" class="w-10 h-10 rounded-full "/>
