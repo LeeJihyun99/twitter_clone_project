@@ -1,7 +1,7 @@
 <template>
 <div class="flex-1 flex h-screen">
     <!-- chat list -->
-    <div class="w-2/5 border-r border-gray overflow-y-auto no-scrollbar">
+    <div class="w-2/5 flex-1 border-r border-gray overflow-y-auto no-scrollbar">
         <div class="flex flex-col">
             <!-- title section -->
             <div class="flex flex-row justify-between pl-3 pt-3 pr-3">
@@ -33,7 +33,7 @@
         </div>
     </div>
     <!-- chat -->
-    <div class="w-3/5 border-gray border-r ">
+    <div class="w-3/5 border-gray border-r hidden lg:block ">
         <div class="flex flex-col h-screen overflow-y-auto">
             <!-- profile on top  -->
             <div class="flex border-b border-gray justify-between p-3">
