@@ -18,7 +18,7 @@
               <div class="ml-2 flex-1 flex flex-col">
                 <div contentEditable="true" placeholder="What's happening?" class="w-full text-2xl focus:outline-none mb-3 resize-none"></div>
                 <div class="text-right border-t border-gray">
-                  <Button class="bg-twitter hover:bg-twitteronMouse text-white rounded-full mt-2 px-6 py-2 text-xl text-bold">Post</Button> 
+                  <button class="bg-twitter hover:bg-twitteronMouse text-white rounded-full mt-2 px-6 py-2 text-xl text-bold">Post</button> 
               </div>
             </div>
             </div>
