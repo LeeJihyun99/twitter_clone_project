@@ -24,7 +24,7 @@
             </div>
             <!-- tweets -->
             <div>
-              <Tweets/>
+              <Tweets v-for="tweet in 10"/>
             </div>
           </div>
         </div>

@@ -10,38 +10,10 @@
         <div class="flex flex-col items-start">
           <!-- side menu icons -->
           <div class="flex flex-col flex-1 items-start space-y-4">
-            <div class="hover:bg-gray px-3 py-2 rounded-full cursor-pointer">
-              <i class="fa-solid fa-house text-3xl"></i>
-              <span class="hidden xl:inline-block ml-5 text-2xl">Home</span>
-            </div>
-            <div class="hover:bg-gray px-3 py-2 rounded-full cursor-pointer">
-              <i class="fa-solid fa-magnifying-glass text-3xl"></i>
-              <span class="hidden xl:inline-block ml-5 text-2xl">Explore</span>
-            </div>
-            <div class="hover:bg-gray px-3 py-2 rounded-full cursor-pointer">
-              <i class="fa-regular fa-bell text-3xl"></i>
-              <span class="hidden xl:inline-block ml-5 text-2xl">Notification</span>
-            </div>
-            <div class="hover:bg-gray px-3 py-2 rounded-full cursor-pointer">
-              <i class="fa-regular fa-message text-3xl"></i>
-              <span class="hidden xl:inline-block ml-5 text-2xl">Messages</span>
-            </div>
-            <div class="hover:bg-gray px-3 py-2 rounded-full cursor-pointer">
-              <i class="fa-regular fa-rectangle-list text-3xl"></i>
-              <span class="hidden xl:inline-block ml-5 text-2xl">List</span>
-            </div>
-            <div class="hover:bg-gray px-3 py-2 rounded-full cursor-pointer">
-              <i class="fa-solid fa-users text-3xl"></i>
-              <span class="hidden xl:inline-block ml-5 text-2xl">Communities</span>
-            </div>
-            <div class="hover:bg-gray px-3 py-2 rounded-full cursor-pointer">
-              <i class="fa-brands fa-x-twitter text-3xl"></i>
-              <span class="hidden xl:inline-block ml-5 text-2xl">Premium</span>
-            </div>
-            <div class="hover:bg-gray px-3 py-2 rounded-full cursor-pointer">
-              <i class="fa-regular fa-user text-3xl"></i>
-              <span class="hidden xl:inline-block ml-5 text-2xl">Profile</span>
-            </div>
+            <router-link :to="route.path" class="hover:bg-gray px-3 py-2 rounded-full cursor-pointer" v-for="route in routes" :key="route">
+              <i :class="route.icon"></i>
+              <span class="hidden xl:inline-block ml-5 text-2xl">{{ route.title }}</span>
+            </router-link>
           </div>
           <!-- twitter button -->
           <div class="w-full flex mt-4 pl-3 ">
@@ -68,24 +40,25 @@
       </div>
     </div>
 
-    <!-- <div class="flex-1 flex h-screen">
-      <Messages />
-    </div> -->
-      <Profile />
-
-    <!-- <Profile /> -->
+    <div class="flex-1 flex h-screen">
+      <router-view />
+    </div>
   
   </div>
 </template>
 
 <script >
-
-
-import Profile from './Pages/Profile.vue';
-import Home from './Pages/Home.vue';
+import {ref, onBeforeMount} from 'vue'
+import router from './router'
 export default {
-  components: {  Profile, Home},
-  setup(){},
+  setup() {
+    const routes = ref([])
+
+    onBeforeMount(()=> {
+      routes.value = router.options.routes
+    })
+    return {routes}
+  }
 }
 </script>
 
