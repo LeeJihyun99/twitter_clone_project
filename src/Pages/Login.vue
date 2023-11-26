@@ -3,8 +3,9 @@
         <i :class="`fa-brands fa-x-twitter text-6xl ${loading ? 'animate-bounce': ''}`"></i>
         <span class="text-3xl font-bold">Login</span>
         <input v-model="email" type="text" placeholder="email" class="w-96 pl-2  h-14 border border-grayid rounded"/>
-        <input v-model="password" type="text" placeholder="password" class="w-96 pl-2  h-14 border border-grayid rounded"/>
-        <button class="w-96 hover:bg-opacity-80 rounded bg-black py-4 text-white" @click="onLogin">Login</button>
+        <input @keyup.enter = "onLogin" v-model="password" type="password" placeholder="password" class="w-96 pl-2  h-14 border border-grayid rounded"/>
+        <button v-if="loading" class="w-96 rounded bg-black py-4 bg-opacity-50 text-white">Logging in..</button>
+        <button v-else class="w-96 hover:bg-opacity-80 rounded bg-black py-4 text-white" @click="onLogin">Login</button>
         <div class="flex space-x-2">
             <button class="text-grayid hover:font-semibold">Forgot password?</button>
             <span>·</span>
@@ -17,13 +18,37 @@
 
 <script>
     import {ref} from 'vue'
+    import {auth} from '../firebase'
+    import {useRouter} from 'vue-router'
     export default {
         setup(){
             const email = ref('')
             const password = ref('')
-            const loading = ref(true)
-            const onLogin = ()=>{
-                console.log(email.value, password.value)
+            const loading = ref(false)
+            const router = useRouter();
+            const onLogin = async ()=>{
+                if(!email.value || !password.value){
+                alert("Please enter all (email and password).");
+                return;
+            }
+                try{
+                    loading.value = true;
+                    const {user}= await auth.signInWithEmailAndPassword(email.value, password.value);
+                    console.log(user.uid);
+                    router.replace("/");
+                }catch(e){
+                    switch(e.code){
+                        case "auth/invalid-email":
+                            alert("wrong email format.");
+                            break;
+                         case "auth/invalid-login-credentials":
+                            alert("wrong email or password.");
+                            break;
+                    }   
+                    alert(e.message);
+                }finally{
+                    loading.value = false;
+                }
             }
             return{ 
                 email,
