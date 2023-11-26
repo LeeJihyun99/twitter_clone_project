@@ -87,7 +87,6 @@ router.beforeEach((to,from,next)=>{
    const requireAuth = to.matched.some(record => record.meta.requireAuth);
    if(to.fullPath === "/login"){
       window.sessionStorage.clear();
-      console.log(window.sessionStorage);
    }
    if(requireAuth && !currentUser) {
       next('/login')
