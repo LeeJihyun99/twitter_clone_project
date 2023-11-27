@@ -31,8 +31,8 @@
           <button class="hidden xl:flex hover:bg-gray rounded-full mt-3 px-4 w-full h-14 items-center">
             <img src="http://picsum.photos/50" class="w-10 h-10 rounded-full "/>
             <div class="xl:ml-2 hidden xl:block">
-              <div class="font-bold">Jihyun Lee</div>
-              <div class="text-grayid text-left">@ljihyun99</div>
+              <div class="font-bold">{{currentUser.username }}</div>
+              <div class="text-grayid text-left">@{{ currentUser.username }}</div>
             </div>
             <i class="ml-auto fas fa-ellipsis-h fa-fw text-2xl hidden xl:block"></i>
           </button>
@@ -48,15 +48,15 @@
     </div>
   
     <!--profile dropdown-->
-    <div v-if="showProfileDropdown" class="absolute bottom-20 left-8 flex flex-col font-semibold text-lg shadow-lg space-y-4 border border-gray rounded-md">
+    <div v-if="showProfileDropdown" class="absolute bottom-20 bg-white left-8 flex flex-col font-semibold text-lg shadow-lg space-y-4 border border-gray rounded-md">
       <div class="border-b-black hover:bg-gray pl-6 pr-6 pt-4 pb-4 cursor-pointer">Add an existing account</div>
-      <div @click ="onLogout" class="pl-6 pr-6 pt-4 pb-4 hover:bg-gray cursor-pointer">Log out @ljihyun99</div>
+      <div @click ="onLogout" class="pl-6 pr-6 pt-4 pb-4 hover:bg-gray cursor-pointer">Log out @{{currentUser.username}}</div>
     </div>
   </div>
 </template>
 
 <script >
-import {ref, onBeforeMount} from 'vue'
+import {ref, onBeforeMount,onMounted} from 'vue'
 import router from '../router'
 import {auth} from '../firebase'
 import store from '../store'
@@ -64,6 +64,13 @@ export default {
   setup() {
     const routes = ref([])
     const showProfileDropdown = ref(false);
+    const currentUser = store.state.user;
+    
+    onMounted(()=>{
+      const currentUser = store.state.user;
+    
+    console.log(store.state.user.username);
+    })
     const onLogout = async ()=> {
       await auth.signOut();
       store.commit("SET_USER", null);
@@ -72,7 +79,7 @@ export default {
     onBeforeMount(()=> {
       routes.value = router.options.routes
     })
-    return {routes,showProfileDropdown, onLogout}
+    return {routes,showProfileDropdown, onLogout,currentUser}
    
   }
 }

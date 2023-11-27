@@ -12,9 +12,7 @@ const store = createStore({
             state.user = user
         }
     },
-    plugins: [createPersistedState({
-        storage: window.sessionStorage,
-    })],
+    plugins: [createPersistedState()],
 })
 
 export default store
