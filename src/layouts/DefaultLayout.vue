@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-screen container mx-auto">
+  <div class="flex h-screen container mx-auto relative">
     <!-- side section  -->
     <div class="w-20 xl:w-1/5 flex flex-col pt-5 justify-between border-r border-gray">
       <!-- logo + side menu icons + twitter button -->
@@ -27,7 +27,7 @@
         </div>
       </div>
       <!-- profile button -->
-      <div class="xl:px-4 mb-3 relative">
+      <div class="xl:px-4 mb-3 relative" @click="showProfileDropdown = !showProfileDropdown">
           <button class="hidden xl:flex hover:bg-gray rounded-full mt-3 px-4 w-full h-14 items-center">
             <img src="http://picsum.photos/50" class="w-10 h-10 rounded-full "/>
             <div class="xl:ml-2 hidden xl:block">
@@ -47,22 +47,36 @@
       <router-view />
     </div>
   
+    <!--profile dropdown-->
+    <div v-if="showProfileDropdown" class="absolute bottom-20 left-8 flex flex-col font-semibold text-lg shadow-lg space-y-4 border border-gray rounded-md">
+      <div class="border-b-black hover:bg-gray pl-6 pr-6 pt-4 pb-4 cursor-pointer">Add an existing account</div>
+      <div @click ="onLogout" class="pl-6 pr-6 pt-4 pb-4 hover:bg-gray cursor-pointer">Log out @ljihyun99</div>
+    </div>
   </div>
 </template>
 
 <script >
 import {ref, onBeforeMount} from 'vue'
 import router from '../router'
+import {auth} from '../firebase'
+import store from '../store'
 export default {
   setup() {
     const routes = ref([])
-
+    const showProfileDropdown = ref(false);
+    const onLogout = async ()=> {
+      await auth.signOut();
+      store.commit("SET_USER", null);
+      await router.replace('/login');
+    }
     onBeforeMount(()=> {
       routes.value = router.options.routes
     })
-    return {routes}
+    return {routes,showProfileDropdown, onLogout}
+   
   }
 }
+
 </script>
 
 
